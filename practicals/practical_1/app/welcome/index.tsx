@@ -62,7 +62,6 @@ export default function WelcomeScreen() {
           style={styles.topBarLogo}
           resizeMode="contain"
         />
-
         <TouchableOpacity
           onPress={handleLanguagePress}
           style={styles.langButton}
@@ -115,16 +114,14 @@ export default function WelcomeScreen() {
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => {
-            /* router.push("/sign-in") etc. */
+            // You can add navigation to sign-in here if needed.
           }}
         >
           <Text style={styles.loginText}>Log in</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.signupButton}
-          onPress={() => {
-            /* router.push("/sign-up") etc. */
-          }}
+          onPress={() => router.push("/sign-up")}
         >
           <Text style={styles.signupText}>I’m new, sign me up</Text>
         </TouchableOpacity>
@@ -143,7 +140,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-    paddingTop: 50, // adjust for status bar if needed
+    paddingTop: 50,
     paddingBottom: 10,
   },
   topBarLogo: {
