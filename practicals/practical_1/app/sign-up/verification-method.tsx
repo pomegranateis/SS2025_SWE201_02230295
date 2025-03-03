@@ -1,4 +1,3 @@
-// app/sign-up/verification-method.tsx
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useRouter } from "expo-router";
@@ -7,13 +6,11 @@ export default function VerificationMethodScreen() {
   const router = useRouter();
 
   const handleMethodSelect = (method: string) => {
-    // Go to OTP screen with the selected method
     router.push(`/sign-up/otp?method=${method}`);
   };
 
   return (
     <View style={styles.container}>
-      {/* Header with back arrow */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
           <Image

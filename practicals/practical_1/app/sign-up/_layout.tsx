@@ -7,7 +7,7 @@ export default function SignUpLayout() {
       screenOptions={{
         headerShown: true,
         headerTitle: "",
-        // Hide just the text, keep the arrow:
+        //hide text, keep arrow:
         headerBackTitle: "",
       }}
     />

@@ -13,7 +13,6 @@ import { useRouter } from "expo-router";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
-// Example slides data
 const slides = [
   {
     id: 1,
@@ -41,7 +40,6 @@ export default function WelcomeScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Handle pagination (dots) by checking scroll position
   const onScroll = (event: any) => {
     const x = event.nativeEvent.contentOffset.x;
     const index = Math.round(x / SCREEN_WIDTH);
@@ -49,13 +47,11 @@ export default function WelcomeScreen() {
   };
 
   const handleLanguagePress = () => {
-    // Navigate to the language modal/screen
     router.push("/language");
   };
 
   return (
     <View style={styles.container}>
-      {/* Top Bar with Gojek logo (left) and Language icon (right) */}
       <View style={styles.topBar}>
         <Image
           source={require("../../assets/images/gojek-logo.png")}
@@ -70,7 +66,6 @@ export default function WelcomeScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Swipeable Slides */}
       <ScrollView
         ref={scrollRef}
         horizontal
@@ -93,7 +88,6 @@ export default function WelcomeScreen() {
         ))}
       </ScrollView>
 
-      {/* Pagination Dots */}
       <View style={styles.dotsContainer}>
         {slides.map((_, index) => {
           const isActive = index === currentIndex;
@@ -109,12 +103,10 @@ export default function WelcomeScreen() {
         })}
       </View>
 
-      {/* Bottom Buttons */}
       <View style={styles.bottomButtons}>
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => {
-            // You can add navigation to sign-in here if needed.
           }}
         >
           <Text style={styles.loginText}>Log in</Text>
@@ -131,9 +123,17 @@ export default function WelcomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  logoContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  logo: {
+    width: 80,
+    height: 40,
+  },
   container: {
     flex: 1,
-    backgroundColor: "#FFF",
+    backgroundColor: "#fff",
   },
   topBar: {
     flexDirection: "row",
@@ -193,27 +193,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   loginButton: {
-    backgroundColor: "#FFF",
-    borderWidth: 1,
-    borderColor: "#000",
-    paddingVertical: 12,
+    backgroundColor: "#00AA00", // Green fill
+    borderRadius: 50, // Large radius to make it oval
+    paddingVertical: 14,
     paddingHorizontal: 40,
-    borderRadius: 8,
-    marginBottom: 10,
+    marginBottom: 16,
   },
   loginText: {
-    fontSize: 16,
+    color: "#FFF", // White text
     fontWeight: "bold",
+    fontSize: 16,
+    textAlign: "center",
   },
   signupButton: {
-    backgroundColor: "#00AA00",
-    paddingVertical: 12,
+    backgroundColor: "#FFF", // White fill
+    borderRadius: 50, // Large radius for oval shape
+    borderWidth: 2, // Thicker border if you want
+    borderColor: "#00AA00", // Green border
+    paddingVertical: 14,
     paddingHorizontal: 40,
-    borderRadius: 8,
   },
   signupText: {
-    fontSize: 16,
+    color: "#00AA00", // Green text
     fontWeight: "bold",
-    color: "#FFF",
+    fontSize: 16,
+    textAlign: "center",
   },
 });

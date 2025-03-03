@@ -1,4 +1,3 @@
-// app/sign-up/index.tsx
 import React, { useState } from "react";
 import {
   View,
@@ -14,16 +13,12 @@ import { useRouter } from "expo-router";
 
 export default function SignUpPhoneScreen() {
   const router = useRouter();
-  // Default country code (can be updated via a country-code picker)
   const countryCode = "+65";
 
-  // Declare phoneNumber state for the TextInput
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleContinue = () => {
-    // In a real app, you might validate the phone number here
     console.log("Phone Number:", phoneNumber);
-    // Navigate to the verification method screen
     router.push("/sign-up/verification-method");
   };
 
@@ -32,7 +27,6 @@ export default function SignUpPhoneScreen() {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-      {/* Top Bar with Gojek logo */}
       <View style={styles.topBar}>
         <Image
           source={require("../../assets/images/gojek-logo.png")}
@@ -41,15 +35,12 @@ export default function SignUpPhoneScreen() {
         />
       </View>
 
-      {/* Title & Subtitle */}
       <Text style={styles.title}>Welcome to Gojek!</Text>
       <Text style={styles.subtitle}>
         Enter or create an account in a few easy steps.
       </Text>
 
-      {/* Phone Input Section */}
       <View style={styles.inputContainer}>
-        {/* Country Code Button */}
         <TouchableOpacity
           style={styles.countryCodeButton}
           onPress={() => router.push("/sign-up/country-code")}
@@ -57,7 +48,6 @@ export default function SignUpPhoneScreen() {
           <Text style={styles.countryCodeText}>{countryCode}</Text>
         </TouchableOpacity>
 
-        {/* Phone Number Input */}
         <TextInput
           style={styles.phoneInput}
           keyboardType="phone-pad"
@@ -67,12 +57,10 @@ export default function SignUpPhoneScreen() {
         />
       </View>
 
-      {/* Continue Button */}
       <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
         <Text style={styles.continueText}>Continue</Text>
       </TouchableOpacity>
 
-      {/* Terms and Privacy */}
       <Text style={styles.termsText}>
         I agree to Gojek's{" "}
         <Text style={{ textDecorationLine: "underline" }}>
@@ -82,16 +70,13 @@ export default function SignUpPhoneScreen() {
         <Text style={{ textDecorationLine: "underline" }}>Privacy Policy</Text>.
       </Text>
 
-      {/* "Issue with number?" link */}
       <TouchableOpacity
         onPress={() => {
-          /* Handle "Issue with number?" if needed */
         }}
       >
         <Text style={styles.issueText}>Issue with number?</Text>
       </TouchableOpacity>
 
-      {/* Footer */}
       <View style={styles.footer}>
         <Text style={styles.fromGoto}>from goto</Text>
       </View>

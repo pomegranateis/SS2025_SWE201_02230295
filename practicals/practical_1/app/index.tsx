@@ -1,4 +1,3 @@
-// app/index.tsx
 import React, { useEffect } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
@@ -7,7 +6,6 @@ export default function SplashScreen() {
   const router = useRouter();
 
   useEffect(() => {
-    // Navigate to welcome screen after 2 seconds
     const timer = setTimeout(() => {
       router.replace("/welcome");
     }, 2000);
@@ -17,7 +15,6 @@ export default function SplashScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Replace with your own logo asset */}
       <Image
         source={require("../assets/images/gojek-logo.png")}
         style={styles.logo}

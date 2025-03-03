@@ -1,4 +1,3 @@
-// app/language/index.tsx
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
@@ -7,7 +6,6 @@ export default function LanguageScreen() {
   const router = useRouter();
 
   const handleSelectLanguage = (lang: string) => {
-    // Do something with selected language
     console.log("Selected language:", lang);
   };
 

@@ -1,50 +1,59 @@
-# Welcome to your Expo app 👋
+# Gojek UI Clone with Expo Router
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Overview
+This project is a **practical assignment** demonstrating how to build a multi-page mobile UI inspired by the Gojek app using **React Native** and **Expo Router**. It covers:
+- A **Splash Screen**  
+- A **Swipeable Welcome Screen** (onboarding slides)  
+- A **Language Selection** modal/screen  
+- A **Sign-Up Flow** with phone input, country code picker, verification methods, and OTP entry
 
-## Get started
+## Folder Structure
 
-1. Install dependencies
 
+> **Note**: Your actual folder names and file paths may differ slightly based on your setup.
+
+## How It Works
+
+1. **Splash Screen (`app/index.tsx`)**  
+   - Displays a Gojek logo and navigates to `/welcome` after a short delay.
+
+2. **Welcome Screen (`app/welcome/index.tsx`)**  
+   - Shows swipeable slides (onboarding) with text and illustrations.  
+   - Has a **“Log in”** and **“I’m new, sign me up”** button at the bottom.  
+   - Tapping **“I’m new, sign me up”** navigates to the sign-up flow (`/sign-up`).
+
+3. **Language Screen (`app/language/index.tsx`)**  
+   - Accessible via a button in the top-right corner of the welcome screen.  
+   - Lets the user select a language.  
+   - Closes or navigates back on confirmation.
+
+4. **Sign-Up Flow (`app/sign-up/…`)**  
+   - **`index.tsx`**: Phone number input and country code button.  
+   - **`country-code.tsx`**: Displays a list of countries to pick from.  
+   - **`verification-method.tsx`**: Choose verification via Email, WhatsApp, or SMS.  
+   - **`otp.tsx`**: Enter the received OTP. Includes a simple timer and a “Try another method” option.
+
+## Installation & Running
+
+1. **Install dependencies**:
    ```bash
    npm install
-   ```
-
-2. Start the app
-
+2. **Start the Expo development server:**
    ```bash
-    npx expo start
-   ```
+   npx expo start
+3. **Open** on a device or emulator (Android Studio, iOS Simulator, or Expo Go).
 
-In the output, you'll find options to open the app in a
+## Usage Notes
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Swipe** left/right on the welcome screen to cycle through onboarding slides.
+- **Tap** the language button (top-right) to see the language selection modal.
+- **Tap** “I’m new, sign me up” to enter the sign-up flow.
+- **Country Code** screen is accessed by tapping the “+65” button (default code).
+- **Verification Method** screen offers Email, WhatsApp, or SMS.
+- **OTP** screen has a 60-second timer and a “Try another method” link.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Acknowledgments
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+* **React Native** for the cross-platform UI.
+* **Expo Router** for file-based routing.
+* **Gojek** brand/UI references for design inspiration. (This project is for educational/demo purposes only.)

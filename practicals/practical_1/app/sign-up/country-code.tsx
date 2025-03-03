@@ -1,4 +1,3 @@
-// app/sign-up/country-code.tsx
 import React, { useState } from "react";
 import {
   View,
@@ -20,14 +19,12 @@ const allCountries = [
   { name: "Afghanistan", code: "+93", flag: "🇦🇫" },
   { name: "Albania", code: "+355", flag: "🇦🇱" },
   { name: "Algeria", code: "+213", flag: "🇩🇿" },
-  // ... etc. You can expand this list
 ];
 
 export default function CountryCodeScreen() {
   const router = useRouter();
   const [search, setSearch] = useState("");
 
-  // Combine popular + all
   const [countries] = useState([...popularCountries, ...allCountries]);
 
   const filteredCountries = countries.filter((item) => {
@@ -39,7 +36,6 @@ export default function CountryCodeScreen() {
   });
 
   const handleSelect = (countryCode: string) => {
-    // Pass selected code back to phone screen
     router.replace(`/sign-up?code=${encodeURIComponent(countryCode)}`);
   };
 
@@ -53,7 +49,6 @@ export default function CountryCodeScreen() {
         onChangeText={setSearch}
       />
 
-      {/* "Popular countries" label (only if not searching) */}
       {search.length === 0 && (
         <Text style={styles.sectionTitle}>Popular countries</Text>
       )}
@@ -80,7 +75,6 @@ export default function CountryCodeScreen() {
           ) : null
         }
         renderItem={({ item }) => {
-          // If it's in popularCountries, skip it in the main list to avoid duplication
           if (
             search.length === 0 &&
             popularCountries.some((p) => p.code === item.code)
